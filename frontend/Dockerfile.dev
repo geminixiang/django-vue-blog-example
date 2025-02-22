@@ -8,7 +8,6 @@ RUN bun install --frozen-lockfile
 # 複製 nuxt 配置檔案
 COPY nuxt.config.ts ./
 
-
 # 設置環境變數
 ENV PATH /app/node_modules/.bin:$PATH
 

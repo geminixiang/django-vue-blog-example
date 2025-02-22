@@ -8,5 +8,4 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/color-mode'
   ],
-
 })
