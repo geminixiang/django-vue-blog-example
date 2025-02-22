@@ -3,12 +3,19 @@ services:
     build:
       context: .
       dockerfile: backend/Dockerfile.dev
+    volumes:
+      - ./backend:/app
+      - /app/.venv
     depends_on:
       db:
         condition: service_healthy
     restart: no
     environment:
       - DJANGO_SETTINGS_MODULE=app.settings
+      - POSTGRES_DB=example
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=db
     command: ["python", "manage.py", "migrate"]
 
   backend:
@@ -16,13 +23,19 @@ services:
       context: .
       dockerfile: backend/Dockerfile.dev
     volumes:
+      - ./backend:/app
       - backend_static:/app/static
       - backend_media:/app/media
+      - /app/.venv  # 這行確保虛擬環境不會被覆蓋
     ports:
       - "8000:8000"
     environment:
       - DEBUG=1
       - DJANGO_SETTINGS_MODULE=app.settings
+      - POSTGRES_DB=example
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=db
     depends_on:
       - db
     command: python manage.py runserver 0.0.0.0:8000
@@ -33,26 +46,32 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - ./frontend:/app
+      - /app/.nuxt
       - /app/node_modules
+      - /app/.bun
     ports:
-      - "5173:5173"
+      - "3000:3000"
     environment:
-      - VITE_API_URL=http://localhost:8000
-    command: npm run dev
+      - NITRO_HOST=0.0.0.0
+      - NITRO_PORT=3000
+      - NUXT_PUBLIC_API_BASE=http://backend:8000
+    command: bun run dev
+    depends_on:
+      - backend
 
   db:
     image: postgres:15-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     environment:
       - POSTGRES_DB=example
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    ports:
-      - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
-      interval: 5s
+      test: pg_isready -U postgres -d example
+      interval: 15s
       timeout: 5s
       retries: 5
 

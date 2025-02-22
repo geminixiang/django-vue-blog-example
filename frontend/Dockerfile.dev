@@ -1,9 +1,17 @@
-FROM node:18-alpine
-
+FROM oven/bun:1 AS base
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json ./
-RUN npm install
+# 複製 package.json 和 bun.lockb
+COPY package.json bun.lockb ./
+RUN bun install --frozen-lockfile
 
-# The rest of the code will be mounted as a volume
+# 複製 nuxt 配置檔案
+COPY nuxt.config.ts ./
+
+
+# 設置環境變數
+ENV PATH /app/node_modules/.bin:$PATH
+
+EXPOSE 3000
+
+CMD ["bun", "run", "dev"]

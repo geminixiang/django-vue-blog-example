@@ -13,3 +13,9 @@ Password (again):
 Superuser created successfully.
 ```
 
+#### create new migrate
+
+```shell
+docker compose exec backend python manage.py makemigrations
+docker compose exec backend python manage.py migrate
+```

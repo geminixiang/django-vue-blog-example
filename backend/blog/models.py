@@ -7,7 +7,7 @@ class Post(TimeStampedModel):
     content = TextField()
 
     class Meta:
-        ordering = ["-created_at"]
+        ordering = ["-created"]
 
     def __str__(self):
         return self.title
