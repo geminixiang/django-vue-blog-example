@@ -1,6 +1,8 @@
 # Django + Vue 3 Blog Example
 > A modern blog application built with Django REST framework, Vue 3, and PostgreSQL. This project demonstrates best practices for full-stack development with a decoupled frontend and backend architecture.
 
+![Image](https://github.com/user-attachments/assets/52b3fd5d-b3c6-4d7c-9d96-5ee842b5bbfa)
+
 ```shell
 docker compose up --build -d
 ```
