@@ -6,6 +6,20 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
   ],
+  app: {
+    head: {
+      title: 'My Blog',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      ]
+    }
+  },
+  colorMode: {
+    classSuffix: '',
+    preference: 'system', // 預設跟隨系統
+    fallback: 'dark',    // 無法檢測系統設置時的後備選項
+  }
 })
