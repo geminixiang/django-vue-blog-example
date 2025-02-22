@@ -12,15 +12,18 @@
       <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
         <!-- 搜尋輸入區 -->
         <div class="flex items-center gap-3 p-4 border-b border-gray-100 dark:border-gray-700">
-          <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-gray-400" />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
           <input
+            ref="searchInput"
             v-model="searchQuery"
             type="text"
             placeholder="搜尋文章、分類或標籤..."
             class="flex-1 bg-transparent border-none outline-none text-gray-900 dark:text-white placeholder-gray-400"
             @keyup.esc="$emit('close')"
           >
-          <kbd class="hidden md:block px-2 py-0.5 text-xs text-gray-400 dark:text-gray-500 border rounded">
+          <kbd class="hidden md:inline-block px-2 py-0.5 text-xs text-gray-400 dark:text-gray-500 border rounded">
             ESC
           </kbd>
         </div>
@@ -37,7 +40,9 @@
             class="flex items-center gap-3 w-full px-3 py-2 text-sm text-gray-600 dark:text-gray-300 
                    hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
           >
-            <Icon name="heroicons:clock" class="w-4 h-4 text-gray-400" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gray-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
             {{ item }}
           </button>
 
@@ -64,6 +69,7 @@
 
 <script setup lang="ts">
 const searchQuery = ref('')
+const searchInput = ref<HTMLInputElement | null>(null)
 
 // 模擬資料
 const recentSearches = [
@@ -81,4 +87,12 @@ const popularTags = [
   'JavaScript',
   'Web Development'
 ]
+
+// 組件掛載後自動聚焦輸入框
+onMounted(() => {
+  // 使用 nextTick 確保 DOM 已更新
+  nextTick(() => {
+    searchInput.value?.focus()
+  })
+})
 </script>
