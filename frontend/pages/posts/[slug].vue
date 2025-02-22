@@ -9,8 +9,8 @@
     <!-- 錯誤提示 -->
     <div v-else-if="postStore.error" class="bg-red-50 dark:bg-red-900/50 p-4 rounded-lg mb-6">
       <p class="text-red-600 dark:text-red-400">{{ postStore.error }}</p>
-      <NuxtLink 
-        to="/posts" 
+      <NuxtLink
+        to="/posts"
         class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline"
       >
         返回文章列表
@@ -21,13 +21,13 @@
     <div v-else-if="post" class="max-w-3xl mx-auto">
       <article class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
         <!-- 縮略圖 -->
-        <img 
-          v-if="post.thumbnail" 
-          :src="post.thumbnail" 
-          :alt="post.title" 
+        <img
+          v-if="post.thumbnail"
+          :src="post.thumbnail"
+          :alt="post.title"
           class="w-full h-64 object-cover"
         >
-        
+
         <div class="p-8">
           <!-- 標題和元資訊 -->
           <div class="mb-8">
@@ -42,8 +42,8 @@
           </div>
 
           <!-- 文章內容 -->
-          <div 
-            v-html="post.content" 
+          <div
+            v-html="post.content"
             class="prose dark:prose-invert max-w-none mb-8"
           ></div>
 
@@ -72,7 +72,7 @@
           </svg>
           <span>上一篇</span>
         </button>
-        
+
         <button
           v-if="postStore.nextPost"
           @click="navigateToPost(postStore.nextPost.id)"

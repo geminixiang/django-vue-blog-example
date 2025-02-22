@@ -2,11 +2,11 @@
 <template>
   <div class="fixed inset-0 z-50">
     <!-- 背景遮罩 -->
-    <div 
+    <div
       class="absolute inset-0 bg-black/50 backdrop-blur-sm"
       @click="$emit('close')"
     />
-    
+
     <!-- 搜尋框 -->
     <div class="fixed inset-x-4 top-24 max-w-2xl mx-auto">
       <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
@@ -33,11 +33,11 @@
           <div class="text-xs font-medium text-gray-400 dark:text-gray-500 px-3 py-2">
             最近搜尋
           </div>
-          
+
           <button
             v-for="(item, index) in recentSearches"
             :key="index"
-            class="flex items-center gap-3 w-full px-3 py-2 text-sm text-gray-600 dark:text-gray-300 
+            class="flex items-center gap-3 w-full px-3 py-2 text-sm text-gray-600 dark:text-gray-300
                    hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gray-400">
@@ -54,8 +54,8 @@
             <button
               v-for="(tag, index) in popularTags"
               :key="index"
-              class="px-3 py-1 text-sm rounded-full bg-gray-100 dark:bg-gray-700 
-                     text-gray-600 dark:text-gray-300 hover:bg-gray-200 
+              class="px-3 py-1 text-sm rounded-full bg-gray-100 dark:bg-gray-700
+                     text-gray-600 dark:text-gray-300 hover:bg-gray-200
                      dark:hover:bg-gray-600 transition-colors"
             >
               {{ tag }}

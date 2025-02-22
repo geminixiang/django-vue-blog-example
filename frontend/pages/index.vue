@@ -31,8 +31,8 @@
 
     <!-- 文章列表 -->
     <div v-else class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      <article 
-        v-for="post in postStore.posts" 
+      <article
+        v-for="post in postStore.posts"
         :key="post.id"
         class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden"
       >
@@ -40,14 +40,14 @@
         <NuxtLink :to="`/posts/${post.id}`" class="block">
           <!-- 縮略圖 -->
           <div class="relative h-48 overflow-hidden">
-            <img 
+            <img
               v-if="post.thumbnail"
-              :src="post.thumbnail" 
-              :alt="post.title" 
+              :src="post.thumbnail"
+              :alt="post.title"
               class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             >
             <!-- 無圖片時的佔位符 -->
-            <div 
+            <div
               v-else
               class="w-full h-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center"
             >
@@ -56,7 +56,7 @@
               </svg>
             </div>
             <!-- 發布日期 -->
-            <time 
+            <time
               class="absolute bottom-3 right-3 px-2 py-1 bg-black/50 text-white text-sm rounded-md backdrop-blur-sm"
             >
               {{ new Date(post.created).toLocaleDateString() }}
@@ -87,7 +87,7 @@
 
         <!-- 操作按鈕 -->
         <div class="px-6 pb-6 flex justify-end gap-2 text-sm">
-          <button 
+          <button
             @click="editPost(post)"
             class="inline-flex items-center gap-1 text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
           >
@@ -96,7 +96,7 @@
             </svg>
             <span>編輯</span>
           </button>
-          <button 
+          <button
             @click="confirmDelete(post)"
             class="inline-flex items-center gap-1 text-gray-600 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 transition-colors"
           >

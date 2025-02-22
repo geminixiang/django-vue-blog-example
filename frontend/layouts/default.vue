@@ -10,22 +10,22 @@
             <NuxtLink to="/" class="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
               Tech Blog
             </NuxtLink>
-            
+
             <!-- Navigation Links -->
             <div class="flex items-center space-x-2">
-              <NuxtLink 
-                v-for="item in navigation" 
+              <NuxtLink
+                v-for="item in navigation"
                 :key="item.path"
                 :to="item.path"
-                class="px-3 py-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 
-                       dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700 
+                class="px-3 py-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100
+                       dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700
                        transition-all duration-200 text-sm font-medium"
               >
                 {{ item.name }}
               </NuxtLink>
-              
+
               <!-- 搜尋組件 -->
-              <button 
+              <button
                 class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors
                        flex items-center gap-2 text-gray-500 dark:text-gray-400"
                 @click="toggleSearch"
@@ -37,9 +37,9 @@
                   ⌘K
                 </kbd>
               </button>
-              
+
               <!-- 主題切換按鈕 -->
-              <button 
+              <button
                 @click="toggleColorMode"
                 class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors text-gray-600 dark:text-gray-300"
               >
@@ -88,7 +88,7 @@
               </a>
             </div>
           </div>
-          
+
           <!-- 快速導航 -->
           <div>
             <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
@@ -96,7 +96,7 @@
             </h3>
             <ul class="space-y-3">
               <li v-for="item in navigation" :key="item.path">
-                <NuxtLink 
+                <NuxtLink
                   :to="item.path"
                   class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                 >
@@ -105,7 +105,7 @@
               </li>
             </ul>
           </div>
-          
+
           <!-- 聯絡資訊 -->
           <div>
             <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
@@ -120,7 +120,7 @@
             </ul>
           </div>
         </div>
-        
+
         <!-- 版權信息 -->
         <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <p class="text-center text-gray-500 dark:text-gray-400 text-sm">

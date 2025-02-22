@@ -8,7 +8,7 @@ export const fetchApi = async <T>(
   options: FetchOptions = {}
 ): Promise<T> => {
   const config = useRuntimeConfig()
-  
+
   const defaultOptions: FetchOptions = {
     baseURL: API_BASE_URL,
     headers: {
