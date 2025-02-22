@@ -8,18 +8,22 @@ docker compose up --build -d
 ```
 
 ## Technology Stack
-### Backend
+### Backend: http://localhost:8000/admin/
 
 - **Django** 5.1.6
 - **PostgreSQL** 15
 - **uv** 0.6.2
 - **Docker**
 
-### Frontend
+![Image](https://github.com/user-attachments/assets/2843631d-9158-4e19-81a8-2cfffdff3183)
+
+### Frontend: http://localhost:3000/
 
 - **Nuxt** 3.15.4
 - **Bun** 1.2.3
 - **Docker**
+
+![Image](https://github.com/user-attachments/assets/52b3fd5d-b3c6-4d7c-9d96-5ee842b5bbfa)
 
 ### Database
 
