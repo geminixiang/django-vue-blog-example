@@ -21,5 +21,13 @@ export default defineNuxtConfig({
     classSuffix: '',
     preference: 'system', // 預設跟隨系統
     fallback: 'dark',    // 無法檢測系統設置時的後備選項
+  },
+  nitro: {
+    devProxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true
+      }
+    }
   }
 })

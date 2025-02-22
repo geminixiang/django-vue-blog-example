@@ -144,3 +144,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# imgur
+IMGUR_CLIENT_ID = os.getenv("IMGUR_CLIENT_ID", "your-client-id")
