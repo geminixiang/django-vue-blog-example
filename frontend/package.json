@@ -1,7 +1,10 @@
 {
-  "name": "nuxt-app",
+  "name": "frontend",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -10,8 +13,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/color-mode": "^3.5.2",
     "nuxt": "^3.15.4",
-    "vue": "latest",
     "vue-router": "latest"
   }
 }
